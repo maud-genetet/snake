@@ -1,8 +1,22 @@
+
+:root {
+    --element1 : #0075FF;
+    --text1 : #011627;
+    --background : #C1B7AE;
+    --circle : #D7DEDC;
+    --element2 : #63acff;
+}
+
+@font-face {
+    font-family: snakeFont;
+    src: url(data/Kid\ Games.ttf);
+}
+
 html, body {
     margin: 0;
     padding: 0;
     align-items: center;
-    background-color: rgb(242, 243, 236);
+    background-color: var(--background);
     justify-content: center;
     display: flex;
     flex-direction: column;
@@ -12,7 +26,7 @@ html, body {
 }
 
 h1 {
-    color: black;
+    color: var(--text1);
     font-size: 2em;
     text-align: center;
     margin: 0;
@@ -21,6 +35,20 @@ h1 {
     justify-content: center;
     display: flex;
     align-items: center;
+    font-family: snakeFont;
+    font-size: xxx-large;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+header img {
+    height :8.5vh;
+    margin-right: 20px;
 }
 
 .menu {
@@ -29,18 +57,16 @@ h1 {
     justify-content: space-between;
     align-items: center;
     height: 10vh;
-    width: 40vw;
 }
 
-button {
-    background-color: white;
+a {
+    background-color: var(--element1);
     border: none;
     border-radius: 30px;
-    color: black;
+    color: var(--circle);
     font-size: 1em;
     padding: 0.5em;
-    margin: 0.5em;
-    min-width: 9vw;
+    min-width: 6vw;
     min-height: 3.5vh;
     font-family: cursive;
     display: flex;
@@ -48,9 +74,9 @@ button {
     align-items: center;
 }
 
-button:hover {
-    background-color: #0075ff;
-    color: white;
+a:hover {
+    background-color: var(--element2);
+    color: var(--circle);
 }
 
 .board {
@@ -69,11 +95,15 @@ button:hover {
 .case {
     width : 20px;
     height : 20px;
-    background-color: grey;
+    background-color: var(--circle);
     margin: 7px;
     border-radius: 100%;
 }
 
-output {
-    color: black;
+output, h3 {
+    color: var(--text1);
+}
+
+.score {
+    display: none;
 }

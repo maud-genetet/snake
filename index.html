@@ -6,26 +6,35 @@
     <meta charset="UTF-8">
     <title>Snake</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="data/logo.png">
 </head>
 
 <body>
 
-    <h1>Snake</h1>
+    <header>
+        <img src="data/logo.svg" alt="snakeLogo">
+        <h1>SNAKE</h1>
+    </header>
+
+    
+    
 
     <div class="menu">
+
+        <p class="highScore">HighScore : 0</p>
+        <p class="score">Score : 0</p>
+
         <div class="numberRow">
             <input type="range" min="5" max="20" value="10" oninput="rangevalue.value=value"/>
             <output id="rangevalue">10</output>
         </div>
 
-        <button>Play</button>
+        <a class="playButton">Play</a>
+
     </div>
 
 
-    <div class="board">
-
-     
-    </div>
+    <div class="board"></div>
 
     <script src="script.js"></script>
 </body>

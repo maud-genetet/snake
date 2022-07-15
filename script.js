@@ -4,7 +4,10 @@ const body = document.querySelector('body');
 const range = document.querySelector('input');
 const numberRow = document.querySelector('.numberRow');
 const board = document.querySelector('.board');
-const button = document.querySelector('button');
+const button = document.querySelector('a');
+const menu = document.querySelector('.menu');
+const score = document.querySelector('.score');
+const highScore = document.querySelector('.highScore');
 var onPlay = false;
 var movement = 'right';
 var length = range.value;
@@ -12,6 +15,11 @@ var length = range.value;
 var head = {};
 var tail = [];
 lengthSnake = 1;
+
+const element1 = '#0075FF';
+const text1 = '#011627';
+const background = '#C1B7AE';
+const circle = '#D7DEDC';
 
 function createBoard(lenght) {
 
@@ -77,7 +85,7 @@ function move(direction) {
 function redreaw() {
     createBoard(length);
     var div = document.getElementById(head[0] + "." + head[1]);
-    div.style.backgroundColor = '#0075ff';
+    div.style.backgroundColor = element1;
     /*for (var i = 0; i < tail.length; i++) {
         var div = document.getElementById(tail[i][0] + "" + tail[i][1]);
         div.style.backgroundColor = 'black';
@@ -107,7 +115,8 @@ function game(lenght) {
 function stop() {
     onPlay = false;
     button.innerHTML = 'Play';
-    numberRow.style.visibility = 'visible';
+    numberRow.style.display = 'flex';
+    score.style.display = 'none';
 }
 
 button.addEventListener('click', () => {
@@ -116,7 +125,10 @@ button.addEventListener('click', () => {
         onPlay = true;
         button.innerHTML = 'Stop';
         game(length);
-        numberRow.style.visibility = 'hidden';
+        numberRow.style.display = 'none';
+        score.innerHTML = 'Score : 0';
+        score.style.display = 'flex';
+        highScore.style.display = 'flex';
     }
     else {
         stop();
@@ -146,4 +158,6 @@ function main() {
 };
 
 main();
+
+menu.style.width = board.offsetWidth + 'px';
 
