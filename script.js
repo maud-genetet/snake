@@ -1,5 +1,5 @@
 
-
+/* variable */
 const body = document.querySelector('body');
 const range = document.querySelector('input');
 const numberRow = document.querySelector('.numberRow');
@@ -19,7 +19,6 @@ var lengthTail = 3;
 var highScoreNumber = 0;
 var fruit = {};
 var time = 200;
-
 
 /* color in css */
 const element1 = '#0075FF';
@@ -61,9 +60,7 @@ function createBoard(lenght) {
         }
         board.appendChild(row);
     }
-  
 };
-
 
 /* when the range is changed */
 range.addEventListener('change', (event) => {
@@ -140,7 +137,6 @@ function isOnObstacle() {
     highScore.innerHTML = "HighScore : " + highScoreNumber;
 };
 
-
 /* put a random fruit */
 function putFruit() {
     fruit[0] = Math.floor(Math.random() * length);
@@ -153,7 +149,6 @@ function putFruit() {
         div.style.backgroundColor = fruitColor;
     }
 }
-
 
 /* start the game */
 function game(lenght) {
@@ -172,7 +167,6 @@ function game(lenght) {
             clearInterval(x);
         }
     },time);
-
 };
 
 /* element stop */
@@ -188,7 +182,7 @@ function stop() {
     }
     lengthTail = 3;
     createBoard(length);
-}
+};
 
 /* start or stop the game */
 button.addEventListener('click', () => {
@@ -231,8 +225,4 @@ function main() {
     menu.style.width = board.offsetWidth + 'px';
 };
 
-
 main();
-
-
-
