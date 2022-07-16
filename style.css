@@ -20,7 +20,7 @@ html, body {
     justify-content: center;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 97.5vh;
     width: 100vw;
     font-family: cursive;
 }
@@ -59,7 +59,7 @@ header img {
     height: 10vh;
 }
 
-a {
+a.playButton {
     background-color: var(--element1);
     border: none;
     border-radius: 30px;
@@ -72,9 +72,10 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
-a:hover {
+a.playButton:hover {
     background-color: var(--element2);
     color: var(--circle);
 }
@@ -106,4 +107,24 @@ output, h3 {
 
 .score {
     display: none;
+}
+
+footer {
+    height: 2.5vh;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #9a928c;
+    color: var(--circle);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: cursive;
+    font-size: 2vh;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--circle);
 }
