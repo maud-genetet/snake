@@ -28,8 +28,8 @@ var time = 200;
 /* color in css */
 const element1 = '#0075FF';
 const text1 = '#011627';
-const background = '#C1B7AE';
-const circle = '#D7DEDC';
+const background = '#F1EDEB';
+const circle = '#bbbbbb';
 const fruitColor = '#e63952';
 
 /* create the board */
@@ -136,7 +136,16 @@ function putFruit() {
     fruit[0] = Math.floor(Math.random() * length);
     fruit[1] = Math.floor(Math.random() * length);
     var div = document.getElementById(fruit[0] + "." + fruit[1]);
-    if (div.style.backgroundColor == element1) {
+    let isOnSnake = false;
+    for (var i = 0; i < tailX.length; i++) {
+        if (fruit[0] == tailX[i] && fruit[1] == tailY[i]) {
+            isOnSnake = true
+        }
+    }
+    if (fruit[0] == head[0] && fruit[1] == head[1]) {
+        isOnSnake = true
+    }
+    if (isOnSnake) {
         putFruit();
     }
     else {

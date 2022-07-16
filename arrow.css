@@ -13,7 +13,7 @@
     align-items: center;
 }
 
-.top-arrow a, .bottom-arrow a{
+.top-arrow button, .bottom-arrow button{
     background-color: var(--text1);
     margin: 2vw;
     border-radius: 100%;
@@ -28,7 +28,7 @@
         margin: 10vw;
     }
 
-    .top-arrow a, .bottom-arrow a{
+    .top-arrow button, .bottom-arrow button{
         width: 20vw;
         height: 20vw;
     }
@@ -44,7 +44,7 @@
         margin: 2vw;
     }
 
-    .top-arrow a, .bottom-arrow a{
+    .top-arrow button, .bottom-arrow button{
         width: 12vw;
         height: 12vw;
     }
