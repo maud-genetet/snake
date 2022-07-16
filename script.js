@@ -150,10 +150,10 @@ function game(lenght) {
     head = [milieu, milieu];
     putFruit();
     var x = setInterval(function () {
-        isOnObstacle();
         if (onPlay && head[0] >= 0 && head[0] < lenght && head[1] >= 0 && head[1] < lenght) {
             moveTail();
             moveHead(movement)
+            isOnObstacle();
         }
         else {
             stop();
