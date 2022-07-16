@@ -21,12 +21,12 @@ html, body {
     padding: 0;
     align-items: center;
     background-color: var(--background);
-    justify-content: center;
     display: flex;
     flex-direction: column;
     height: 97.5vh;
     width: 100vw;
     font-family: snakeFont2;
+    top: 0;
 }
 
 h1 {
@@ -166,6 +166,10 @@ footer a:hover {
         height :6.5vh;
         margin-right: 20px;
     }
+
+    body {
+        justify-content: flex-start;
+    }
 }
 
 @media screen and ( min-width: 768px) {
@@ -183,6 +187,10 @@ footer a:hover {
     header img {
         height :8.5vh;
         margin-right: 20px;
+    }
+
+    body {
+        justify-content: center;
     }
 }
     
