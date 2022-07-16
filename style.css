@@ -11,6 +11,11 @@
     src: url(data/Kid\ Games.ttf);
 }
 
+@font-face {
+    font-family: snakeFont2;
+    src: url(data/MilkyNice.ttf);
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -21,12 +26,11 @@ html, body {
     flex-direction: column;
     height: 97.5vh;
     width: 100vw;
-    font-family: cursive;
+    font-family: snakeFont2;
 }
 
 h1 {
     color: var(--text1);
-    font-size: 2em;
     text-align: center;
     margin: 0;
     padding: 0;
@@ -35,7 +39,6 @@ h1 {
     display: flex;
     align-items: center;
     font-family: snakeFont;
-    font-size: xxx-large;
 }
 
 header {
@@ -43,11 +46,6 @@ header {
     align-items: center;
     justify-content: center;
     flex-direction: row;
-}
-
-header img {
-    height :8.5vh;
-    margin-right: 20px;
 }
 
 .menu {
@@ -63,11 +61,7 @@ a.playButton {
     border: none;
     border-radius: 30px;
     color: var(--circle);
-    font-size: 1em;
-    padding: 0.5em;
-    min-width: 6vw;
-    min-height: 3.5vh;
-    font-family: cursive;
+    font-family: snakeFont2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,7 +113,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: cursive;
+    font-family: snakeFont2;
     font-size: 1.75vh;
 }
 
@@ -131,3 +125,65 @@ footer a {
 footer a:hover {
     color: var(--text1);
 }
+
+@media screen and ( max-width: 768px) {
+    .menu {
+        height: fit-content;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .playButton {
+        width: 30vw;
+        height: min-content;
+    }
+
+    header {
+        margin-top: 25px;
+        font-size: medium;
+    }
+
+    .highScore, .score {
+        height: min-content;
+        font-size: small;
+        margin: 0;
+        padding: 0;
+        margin-right: 20px;
+    }
+
+    h1 {
+        font-size: x-large;
+    }
+
+    .playButton {
+        font-size: small;
+        padding: 0.2em;
+        margin: 10px;
+    }
+
+    header img {
+        height :6.5vh;
+        margin-right: 20px;
+    }
+}
+
+@media screen and ( min-width: 768px) {
+    h1 {
+        font-size: xxx-large;
+    }
+    
+    .playButton{
+        font-size: 1em;
+        padding: 0.5em;
+        min-width: 6vw;
+        min-height: 3.5vh;
+    }
+
+    header img {
+        height :8.5vh;
+        margin-right: 20px;
+    }
+}
+    

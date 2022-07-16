@@ -1,4 +1,3 @@
-
 /* variable */
 const body = document.querySelector('body');
 const range = document.querySelector('input');
@@ -8,6 +7,12 @@ const button = document.querySelector('a');
 const menu = document.querySelector('.menu');
 const score = document.querySelector('.score');
 const highScore = document.querySelector('.highScore');
+const rules = document.querySelector('.rules');
+const arrow = document.querySelector('.arrow');
+const downArrow = document.getElementById('downArrow');
+const topArrow = document.getElementById('topArrow');
+const leftArrow = document.getElementById('leftArrow');
+const rightArrow = document.getElementById('rightArrow');
 var onPlay = false;
 var movement = 'right';
 var length = range.value;
@@ -88,32 +93,21 @@ function moveHead(direction) {
 
 /* move tailX's snake */
 function moveTail() {
-    if (tailX.length < lengthTail-1) {
+    if (tailX.length < lengthTail) {
         tailX.push(head[0]);
         tailY.push(head[1]);
     }
     else {
-        tailX.shift();
-        tailY.shift();
+        var x = tailX.shift();
+        var y = tailY.shift();
+        var div = document.getElementById(x + "." + y);
+        div.style.backgroundColor = circle;
         tailX.push(head[0]);
         tailY.push(head[1]);
     }
+    var headDiv = document.getElementById(head[0] + "." + head[1]);
+    headDiv.style.backgroundColor = element1;
 }
-
-/* redraw the board */
-function redraw() {
-    createBoard(length);
-    if (head[0]>=0 && head[0]<length && head[1]>=0 && head[1]<length) {
-        var div = document.getElementById(head[0] + "." + head[1]);
-        div.style.backgroundColor = element1;
-        for (var i = 0; i < tailX.length; i++) {
-            var div = document.getElementById(tailX[i] + "." + tailY[i]);
-            div.style.backgroundColor = element1;
-        }
-        var var2 = document.getElementById(fruit[0] + "." + fruit[1]);
-        var2.style.backgroundColor = fruitColor;
-    }
-};
 
 /* view if the snake go to an obsatcle */
 function isOnObstacle() {
@@ -156,11 +150,10 @@ function game(lenght) {
     head = [milieu, milieu];
     putFruit();
     var x = setInterval(function () {
+        isOnObstacle();
         if (onPlay && head[0] >= 0 && head[0] < lenght && head[1] >= 0 && head[1] < lenght) {
             moveTail();
             moveHead(movement)
-            isOnObstacle();
-            redraw();
         }
         else {
             stop();
@@ -204,18 +197,54 @@ button.addEventListener('click', () => {
 /* move the snake */
 window.addEventListener('keydown', (event) => {
     if (event.keyCode == 37) {
-        movement = 'left';
+        if (movement != 'right') {
+            movement = 'left';
+        }
     }
     else if (event.keyCode == 38) {
-        movement = 'up';
+        if (movement != 'down') {
+            movement = 'up';
+        }
     }
     else if (event.keyCode == 39) {
-        movement = 'right';
+        if (movement != 'left') {
+            movement = 'right';
+        }
     }
     else if (event.keyCode == 40) {
-        movement = 'down';
+        if (movement != 'up') {
+            movement = 'down';
+        }
     }
 
+});
+
+rules.addEventListener('click', () => {
+    rules.remove();
+});
+
+topArrow.addEventListener('click', () => {
+    if (movement != 'down') {
+        movement = 'up';
+    }
+});
+
+downArrow.addEventListener('click', () => {
+    if (movement != 'up') {
+        movement = 'down';
+    }
+});
+
+leftArrow.addEventListener('click', () => {
+    if (movement != 'right') {
+        movement = 'left';
+    }
+});
+
+rightArrow.addEventListener('click', () => {
+    if (movement != 'left') {
+        movement = 'right';
+    }
 });
 
 /* main function */
@@ -223,6 +252,12 @@ function main() {
     lenght = range.value;
     createBoard(length);
     menu.style.width = board.offsetWidth + 'px';
+    if (window.innerHeight > window.innerWidth) {
+        rules.remove();
+    }
+    else {
+        arrow.remove();
+    }
 };
 
 main();
